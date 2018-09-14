@@ -4,12 +4,13 @@ import './UserCard.css';
 
 class UserCard extends Component {
     render() {
-        const { id, first_name, last_name, email, active } = this.props.user;
+        const { id, first_name, last_name, email, active, date_added } = this.props.user;
         
         return (
             <div className="user-card-component">
                 <h2>{first_name} {last_name}</h2>
                 <p>{email}</p>
+                <p>User since: {date_added}</p>
                 
                 <div className="user-card-controls">
                     <label>

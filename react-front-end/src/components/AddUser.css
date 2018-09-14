@@ -1,0 +1,31 @@
+.add-user-component {
+    text-align: left;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.add-user-component .labeled-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.add-user-component .labeled-input label {
+    margin-bottom: 8px;
+}
+
+.add-user-component input {
+    background: none !important;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    padding: 4px 6px;
+}
+
+.add-user-component .submit-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.add-user-component .submit-buttons button:not(:last-child) {
+    margin-right: 15px;
+}
