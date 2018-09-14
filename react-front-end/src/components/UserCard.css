@@ -1,0 +1,37 @@
+.user-card-component {
+    display: flex;
+    flex-direction: column;
+    margin: 15px auto;
+    position: relative;
+    width: 400px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px #0005;
+    text-align: left;
+}
+
+.user-card-component h2 {
+    background-color: rgb(23, 63, 138);
+    color: #fff;
+    margin: 0;
+    padding: 5px 15px;
+}
+
+.user-card-component p {
+    margin: 0;
+    padding: 10px 15px 20px;
+}
+
+.user-card-component .fa-trash {
+    float: right;
+    align-self: flex-end;
+}
+
+.user-card-component .user-card-controls {
+    border-top: 1px solid #ddd;
+    padding: 10px;
+}
+
+.user-card-component .fa-trash:hover {
+    color: rgb(170, 15, 15);
+}

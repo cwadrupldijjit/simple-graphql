@@ -4,6 +4,8 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const importSchema = require('graphql-import');
 
+const userService = require('./fake-data');
+
 
 // ----------- Bootstrap app -----------
 

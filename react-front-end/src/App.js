@@ -1,21 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import UserCard from './components/UserCard';
 
 class App extends Component {
+  state = {
+    users: [],
+  };
+  
+  
+  
   render() {
+    const users = this.state.users.map((user, i) => (
+      <UserCard
+          user={user}
+          delete={this.handleDelete}
+          toggleActive={this.handleActiveToggle}
+          key={i} />
+    ));
+    
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">User Management</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        
+        {users}
       </div>
     );
   }
+  
+  handleActiveToggle = (id, activate) => {
+    console.log('activate', `${id}`, activate);
+    
+    const users = [...this.state.users];
+    const index = users.findIndex(u => u.id == id);
+    const user = users[index];
+    
+    user.active = activate;
+    
+    users.splice(index, 1, user);
+    
+    this.setState({ users });
+  };
+  
+  handleDelete = id => {
+    console.log('delete', id);
+  };
 }
 
 export default App;
