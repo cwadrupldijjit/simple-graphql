@@ -13,7 +13,7 @@ GraphQL is separated into other files mainly for readability's sake.  In order t
 
 ### Setup:
   - `git clone` this repo
-  - `npm install-all` in the main folder
+  - `npm run install-all` in the main folder
 
 ### Running the project:
   - `npm start`
