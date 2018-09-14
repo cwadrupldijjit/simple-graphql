@@ -16,12 +16,14 @@ const users = [
         email: 'ninjatuttle@hotmail.com',
         id: 1,
         date_added: new Date(),
+        active: false,
     },
 ];
 
 function addUser(user) {
     user.id = getNextId();
     user.date_added = new Date();
+    user.active = false;
     users.push(user);
     
     return user;

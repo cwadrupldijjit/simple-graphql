@@ -4,11 +4,17 @@ import UserCard from './components/UserCard';
 import AddUser from './components/AddUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import * as userService from './services/user-service';
+
 class App extends Component {
   state = {
     users: [],
     showForm: false,
   };
+  
+  componentWillMount() {
+    this.fetchUsers();
+  }
   
   render() {
     const { showForm } = this.state;
@@ -27,7 +33,7 @@ class App extends Component {
         </header>
         
         { showForm ?
-            <AddUser onCancel={this.toggleForm} /> :
+            <AddUser onSubmit={this.handleUserAdd} onCancel={this.toggleForm} /> :
             <button onClick={this.toggleForm}>
               <FontAwesomeIcon icon="plus" />
               Add a User
@@ -38,26 +44,39 @@ class App extends Component {
     );
   }
   
+  fetchUsers() {
+    userService.getUsers(this.state.direction)
+      .then(res => this.setState({ users: res.data.users }));
+  }
+  
   handleActiveToggle = (id, activate) => {
-    console.log('activate', `${id}`, activate);
-    
     const users = [...this.state.users];
     const index = users.findIndex(u => u.id == id);
     const user = users[index];
     
     user.active = activate;
     
-    users.splice(index, 1, user);
-    
-    this.setState({ users });
+    userService.updateUser(user)
+      .then(result => {
+        users.splice(index, 1, result.data.updateUser);
+        
+        this.setState({ users });
+      });
   };
   
   handleDelete = id => {
-    console.log('delete', id);
+    userService.deleteUser(id)
+      .then(() => {
+        this.fetchUsers();
+      });
   };
   
   handleUserAdd = user => {
-    console.log('user added', user);
+    userService.addUser(user)
+      .then(() => {
+        this.toggleForm();
+        this.fetchUsers();
+      });
   };
   
   toggleForm = () => {

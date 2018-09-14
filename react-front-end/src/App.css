@@ -47,3 +47,7 @@ button [data-icon] {
   margin-right: .4em;
   display: inline-block;
 }
+
+[id*="__lpform"] {
+  display: none;
+}

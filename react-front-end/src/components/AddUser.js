@@ -4,7 +4,7 @@ import './AddUser.css';
 class AddUser extends Component {
     render() {
         return (
-            <form className="add-user-component">
+            <form className="add-user-component" onSubmit={e => this.handleSubmit(e)}>
                 <div className="labeled-input">
                     <label htmlFor="first-name">First Name</label>
                     <input type="text" name="firstName" id="first-name" ref="first_name" />
@@ -12,12 +12,12 @@ class AddUser extends Component {
                 
                 <div className="labeled-input">
                     <label htmlFor="first-name">Last Name</label>
-                    <input type="text" name="firstName" id="first-name" ref="first_name" />
+                    <input type="text" name="firstName" id="first-name" ref="last_name" />
                 </div>
                 
                 <div className="labeled-input">
                     <label htmlFor="first-name">Email</label>
-                    <input type="text" name="firstName" id="first-name" ref="first_name" />
+                    <input type="text" name="firstName" id="first-name" ref="email" />
                 </div>
                 
                 <div className="submit-buttons">
@@ -38,7 +38,7 @@ class AddUser extends Component {
         
         const user = { first_name, last_name, email };
         
-        return user;
+        this.props.onSubmit(user);
     }
 }
 

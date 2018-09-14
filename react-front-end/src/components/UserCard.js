@@ -14,7 +14,7 @@ class UserCard extends Component {
                 
                 <div className="user-card-controls">
                     <label>
-                        { active ? 'Mark this user inactive' : 'Mark this user active' }
+                        User is active
                         <input
                             type="checkbox"
                             checked={active ? 'checked' : ''}

@@ -1,0 +1,15 @@
+# import User from "user.graphql"
+# import UserInput from 'user-input.graphql'
+# import OrderByDirections from 'enums.graphql'
+
+type Query {
+    hello: String!
+    user(id: Int): User!
+    users(direction: OrderByDirections): [User]
+}
+
+type Mutation {
+    addUser(user: UserInput!): User!
+    deleteUser(id: Int!): User!
+    updateUser(user: UserInput!): User!
+}

@@ -1,0 +1,11 @@
+# import UserInterface from 'user-interface.graphql'
+# import Date from 'scalars.graphql'
+
+type User implements UserInterface {
+    first_name: String!
+    last_name: String!
+    email: String!
+    id: ID!
+    date_added: Date
+    active: Boolean!
+}
